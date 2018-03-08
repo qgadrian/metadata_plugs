@@ -1,0 +1,15 @@
+language: elixir
+elixir:
+- 1.6.1
+env:
+- MIX_ENV=test
+script: mix coveralls.travis
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  slack:
+    on_success: change
+    on_failure: always
+    rooms:
+      secure: xo2JZmecO/CxziIKIjZxZXjxYmPP7w69+VzuK5uH8gzXGSTUmGHI6fkhghf9WCuIQT9ZVs7msV1btLmdtqb9Q/56GrZ5a0/JyODdjlyb8NWOkBj+5bv3OBPUBqOnOFPm7BluEESz06PDlQObpBbaOy4yjlTRsRHfm7SIVVP8E1/cwTxRvWq6PutI54b4uxl6acL/+ZICbyG+t4gp1Xxf7y2apFn1Ywh4nt8Jv12ewe5UiWcWKZlBdBos8qVEpzhfxwGrBqU2zjTZ0jubC+D2x2dkOAuBsjf3RNTVJDYE2mp4sjLPAa+TjI4taG479Ox5Xiex/mhPsDKVpr8v9QSkzDn9yxIQl5ricKuCc10HCUhtsifGK3HFKJS1wVkIJcrFS4Nez/5DauOY1xBo/ycTDAyCodxd3H/NTOW6ZLlUl3C6VQPmJ46+25TQ+DXvUJXFfgE/t6HOD5dwCHRtLoEkRcPgfYuX5IPEr53A1GxgdQ3iFtKF2gsCOKs6rt3z/n2WdENA7LVf+FA/doh1CHlyCsGT3sRii5c5ohye28Y+prVdabnU1+yksL9llzjbKydXim4FV3MPjZUQfx5sEdtRa7JbTrK92LqU4lHrYXG88du6hUN2sIqnSC0ERcTTKu22Rzx4eWEyRFiT2UdXNCz05pmQq+ykM3ANK4aPdCqiHz8=
