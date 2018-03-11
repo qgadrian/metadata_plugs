@@ -1,17 +1,17 @@
-[![Coverage Status](https://coveralls.io/repos/github/heyorbit/metadata_plugs/badge.svg?branch=master)](https://coveralls.io/github/heyorbit/metadata_plugs?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/qgadrian/metadata_plugs/badge.svg?branch=master)](https://coveralls.io/github/qgadrian/metadata_plugs?branch=master)
 [![Hex version](https://img.shields.io/hexpm/v/sippet.svg "Hex version")](https://hex.pm/packages/metadata_plugs)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-9768d1.svg)](https://hexdocs.pm/metadata_plugs)
-[![Build Status](https://travis-ci.org/heyorbit/metadata_plugs.svg?branch=master)](https://travis-ci.org/heyorbit/metadata_plugs)
-[![Deps Status](https://beta.hexfaktor.org/badge/all/github/heyorbit/metadata_plugs.svg)](https://beta.hexfaktor.org/github/heyorbit/metadata_plugs)
+[![Build Status](https://travis-ci.org/qgadrian/metadata_plugs.svg?branch=master)](https://travis-ci.org/qgadrian/metadata_plugs)
+[![Deps Status](https://beta.hexfaktor.org/badge/all/github/qgadrian/metadata_plugs.svg)](https://beta.hexfaktor.org/github/qgadrian/metadata_plugs)
 
 # MetadataPlugs
 
 Collection of plugs to provide different metadata information.
 
-Plugs included:
+[Plugs included](#plugs):
 
-* Health
-* App version
+* [Health](#health)
+* [Info](#info)
 
 ## Installation
 
@@ -19,7 +19,7 @@ Add to dependencies
 
 ```elixir
 def deps do
-  [{:metadata_plugs, "~> 0.1.0"}]
+  [{:metadata_plugs, "~> 0.2.0"}]
 end
 ```
 
@@ -29,19 +29,32 @@ Install dependencies
 mix deps.get
 ```
 
-## Usage
+## Plugs
 
-Add the desired plugs to the endpoint file
+### Health
+
+Just add the plug to the endpoint file
 
 ```elixir
 plug(MetadataPlugs.Health)
-plug(MetadataPlugs.Info)
 ```
 
-You can configure the path for the endpoints, for example
+You can configure the path for the endpoint
 
 ```elixir
-plug(MetadataPlugs.Health, health_path: "/healthz")
+plug(MetadataPlugs.Health, path: "/healthz")
 ```
 
-Check [documentation](https://hexdocs.pm/metadata_plugs) for more options
+### Info
+
+Add the plug to the endpoint file with the desired environment variables to get the info from.
+
+```elixir
+plug(MetadataPlugs.Info, env_vars: ["APP_VERSION", "ENVIRONMENT"])
+```
+
+You can configure the path for the endpoint
+
+```elixir
+plug(MetadataPlugs.Info, path: "/infoz")
+```

@@ -17,4 +17,12 @@ defmodule MetadataPlugs.HealthTest do
     assert conn.status == 200
     assert conn.resp_body == "{\"status\":\"up\"}"
   end
+
+  test "when the conn does not match with the plug then the conn is returned" do
+    another_conn = conn(:get, "/whatever")
+
+    conn = MetadataPlugs.Health.call(another_conn, @opts)
+
+    assert(conn == another_conn)
+  end
 end
