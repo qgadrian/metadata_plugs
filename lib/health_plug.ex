@@ -1,4 +1,8 @@
 defmodule MetadataPlugs.Health do
+  @moduledoc """
+  Plug module that provides a health endpoint
+  """
+
   @behaviour Plug
   import Plug.Conn
 

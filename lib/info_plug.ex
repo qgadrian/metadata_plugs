@@ -1,4 +1,8 @@
 defmodule MetadataPlugs.Info do
+  @moduledoc """
+  Plug module that provides the value of a configured list of environment variables
+  """
+
   @behaviour Plug
   import Plug.Conn
 
