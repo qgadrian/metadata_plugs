@@ -18,6 +18,7 @@ defmodule MetadataPlugs.Info do
           env_vars: list(String.t())
         ]
 
+  @impl true
   @spec init(opts :: opts) :: map
   def init(opts) do
     default_opts = [
@@ -31,6 +32,7 @@ defmodule MetadataPlugs.Info do
   @doc """
   Resolves a health request
   """
+  @impl true
   @spec call(Plug.Conn.t(), map) :: Plug.Conn.t()
   def call(conn, opts) do
     if conn.request_path == opts[:path] and conn.method == "GET" do
