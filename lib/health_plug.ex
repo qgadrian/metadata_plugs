@@ -9,7 +9,7 @@ defmodule MetadataPlugs.Health do
   @path "/health"
 
   @typedoc """
-  - `:health_path` -- (Optional) Health path (default: `/health`).
+  - `:path` -- (Optional) The health endpoint path (default: `/health`).
   """
   @type opts :: [path: String.t()]
 

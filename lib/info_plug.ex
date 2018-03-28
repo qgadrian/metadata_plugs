@@ -10,7 +10,7 @@ defmodule MetadataPlugs.Info do
 
   @typedoc """
   - `:env_vars` -- String list of environment variables names to get the value from (default: []).
-  - `:path` -- (Optional) Info endpoint path (default: `/info`).
+  - `:path` -- (Optional) The info endpoint path (default: `/info`).
   """
 
   @type opts :: [
