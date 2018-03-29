@@ -14,7 +14,7 @@ defmodule MetadataPlugs.Health do
   @type opts :: [path: String.t()]
 
   @impl true
-  @spec init(opts :: opts) :: map
+  @spec init(keyword()) :: keyword()
   def init(opts) do
     default_opts = [
       path: @path
@@ -27,7 +27,7 @@ defmodule MetadataPlugs.Health do
   Resolves a info request
   """
   @impl true
-  @spec call(Plug.Conn.t(), map) :: Plug.Conn.t()
+  @spec call(Plug.Conn.t(), keyword) :: Plug.Conn.t()
   def call(conn, opts) do
     if conn.request_path == opts[:path] and conn.method == "GET" do
       send_health(conn)
@@ -43,7 +43,7 @@ defmodule MetadataPlugs.Health do
     |> send_resp(200, Poison.encode!(health_response()))
   end
 
-  @spec health_response() :: Map.t()
+  @spec health_response() :: map()
   defp health_response do
     %{status: "up"}
   end

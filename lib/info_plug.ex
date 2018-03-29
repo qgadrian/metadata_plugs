@@ -19,7 +19,7 @@ defmodule MetadataPlugs.Info do
         ]
 
   @impl true
-  @spec init(opts :: opts) :: map
+  @spec init(keyword()) :: keyword()
   def init(opts) do
     default_opts = [
       path: @path,
@@ -49,7 +49,7 @@ defmodule MetadataPlugs.Info do
     |> send_resp(200, info_response(env_vars))
   end
 
-  @spec info_response(list(String.t())) :: Map.t()
+  @spec info_response(list(String.t())) :: String.t()
   defp info_response(env_vars) do
     env_vars
     |> Enum.reduce(%{}, fn env_var, acc ->

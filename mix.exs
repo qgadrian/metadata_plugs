@@ -47,6 +47,7 @@ defmodule MetadataPlug.MixProject do
       {:ex_doc, "~> 0.16", only: :dev, runtime: false},
       {:cowboy, "~> 1.1"},
       {:plug, "~> 1.0"},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:excoveralls, "~> 0.8", only: :test},
       {:poison, "~> 3.1"}
     ]
