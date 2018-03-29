@@ -4,7 +4,7 @@ defmodule MetadataPlug.MixProject do
   def project do
     [
       app: :metadata_plugs,
-      version: "0.2.2",
+      version: "0.2.3",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -46,7 +46,7 @@ defmodule MetadataPlug.MixProject do
     [
       {:ex_doc, "~> 0.16", only: :dev, runtime: false},
       {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.0"},
+      {:plug, "~> 1.5"},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:excoveralls, "~> 0.8", only: :test},
       {:poison, "~> 3.1"}

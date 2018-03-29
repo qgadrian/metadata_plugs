@@ -14,7 +14,7 @@ defmodule MetadataPlugs.Health do
   @type opts :: [path: String.t()]
 
   @impl true
-  @spec init(keyword()) :: keyword()
+  @spec init(Plug.opts()) :: Plug.opts()
   def init(opts) do
     default_opts = [
       path: @path
@@ -27,7 +27,7 @@ defmodule MetadataPlugs.Health do
   Resolves a info request
   """
   @impl true
-  @spec call(Plug.Conn.t(), keyword) :: Plug.Conn.t()
+  @spec call(Plug.Conn.t(), Plug.opts()) :: Plug.Conn.t()
   def call(conn, opts) do
     if conn.request_path == opts[:path] and conn.method == "GET" do
       send_health(conn)
