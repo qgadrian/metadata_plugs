@@ -39,7 +39,7 @@ Just add the plug to the endpoint file
 plug(MetadataPlugs.Health)
 ```
 
-You can configure the path for the endpoint
+Default path for this plug is `/health`, which can be overrided:
 
 ```elixir
 plug(MetadataPlugs.Health, path: "/healthz")
@@ -53,7 +53,7 @@ Add the plug to the endpoint file with the desired environment variables to get 
 plug(MetadataPlugs.Info, env_vars: ["APP_VERSION", "ENVIRONMENT"])
 ```
 
-You can configure the path for the endpoint
+Default path for this plug is `/info`, which can be overrided:
 
 ```elixir
 plug(MetadataPlugs.Info, path: "/infoz")
