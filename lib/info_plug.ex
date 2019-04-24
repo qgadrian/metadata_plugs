@@ -56,6 +56,6 @@ defmodule MetadataPlugs.Info do
       env_var_value = System.get_env(env_var) || ""
       Map.put(acc, env_var, env_var_value)
     end)
-    |> Poison.encode!()
+    |> Jason.encode!()
   end
 end

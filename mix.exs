@@ -46,7 +46,7 @@ defmodule MetadataPlug.MixProject do
       {:plug, "~> 1.8"},
       {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
-      {:poison, "~> 3.1"}
+      {:jason, "~> 1.1"}
     ]
   end
 end

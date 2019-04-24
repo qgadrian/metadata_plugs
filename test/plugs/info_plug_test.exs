@@ -15,7 +15,7 @@ defmodule MetadataPlugs.InfoTest do
     expected_env_vars_response =
       @env_vars
       |> Enum.reduce(%{}, fn env_var, acc -> Map.put(acc, env_var, "#{env_var}_value") end)
-      |> Poison.encode!()
+      |> Jason.encode!()
 
     conn =
       :get
