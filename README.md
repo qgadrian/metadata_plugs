@@ -19,7 +19,7 @@ Add to dependencies
 
 ```elixir
 def deps do
-  [{:metadata_plugs, "~> 0.2.3"}]
+  [{:metadata_plugs, "~> 0.3.0"}]
 end
 ```
 
