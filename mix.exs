@@ -1,15 +1,18 @@
 defmodule MetadataPlug.MixProject do
   use Mix.Project
 
+  @version "0.3.0"
+
   def project do
     [
       app: :metadata_plugs,
-      version: "0.3.0",
+      version: @version,
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
       description: description(),
+      docs: docs(),
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
@@ -46,6 +49,18 @@ defmodule MetadataPlug.MixProject do
       {:plug, "~> 1.8"},
       {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
       {:jason, "~> 1.1"}
+    ]
+  end
+
+  defp docs() do
+    [
+      source_ref: "v#{@version}",
+      main: "readme",
+      extra_section: "README",
+      formatters: ["html", "epub"],
+      extras: [
+        "README.md"
+      ]
     ]
   end
 end
