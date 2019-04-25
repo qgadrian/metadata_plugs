@@ -1,6 +1,26 @@
 defmodule MetadataPlugs.Health do
   @moduledoc """
-  Plug module that provides a health endpoint
+  This plug  provides a health endpoint.
+
+  The purpose of this endpoint is send a heartbeat response when the server is
+  up.
+
+
+  ## Options
+
+  The plug listens by default the `/health` endpoint. See `t:opts/0` for more
+  info.
+
+  ## Request
+
+  The configured endpoint should be called via an `HTTP/GET` request.
+
+  When this endpoint is called, the server responds with an `HTTP 200 OK`
+  containing the following body:
+
+  ```json
+  {"status": "up"}
+  ```
   """
 
   @behaviour Plug
@@ -9,7 +29,9 @@ defmodule MetadataPlugs.Health do
   @path "/health"
 
   @typedoc """
-  - `:path` -- (Optional) The health endpoint path (default: `/health`).
+  Plug options:
+
+  * `path`: The health endpoint path, defaults to `/health`.
   """
   @type opts :: [path: String.t()]
 
@@ -24,7 +46,7 @@ defmodule MetadataPlugs.Health do
   end
 
   @doc """
-  Resolves a info request
+  Resolves a health request.
   """
   @impl true
   @spec call(Plug.Conn.t(), Plug.opts()) :: Plug.Conn.t()

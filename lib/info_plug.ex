@@ -1,6 +1,22 @@
 defmodule MetadataPlugs.Info do
   @moduledoc """
-  Plug module that provides the value of a configured list of environment variables
+  This plug provides the value of environment variables.
+
+  ## Options
+
+  The plug listens by default the `/info` endpoint. See `t:opts/0` for more
+  info.
+
+  ## Request
+
+  The configured endpoint should be called via an `HTTP/GET` request.
+
+  When this endpoint is called, the server responds with an `HTTP 200 OK`
+  containing the value of all the configured environment variables. For example:
+
+  ```json
+  {"environment": "production", "version": 20190105}
+  ```
   """
 
   @behaviour Plug
@@ -9,8 +25,11 @@ defmodule MetadataPlugs.Info do
   @path "/info"
 
   @typedoc """
-  - `:env_vars` -- String list of environment variables names to get the value from (default: []).
-  - `:path` -- (Optional) The info endpoint path (default: `/info`).
+  Plug options:
+
+  * `env_vars`: String list of environment variables names to get the value
+  from, defaults to `[]`.
+  * `path`: The health endpoint path, defaults to `/info`.
   """
 
   @type opts :: [
@@ -30,7 +49,7 @@ defmodule MetadataPlugs.Info do
   end
 
   @doc """
-  Resolves a health request
+  Resolves an info request.
   """
   @impl true
   @spec call(Plug.Conn.t(), Plug.opts()) :: Plug.Conn.t()
