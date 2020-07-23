@@ -65,7 +65,8 @@ defmodule MetadataPlugs.Info do
   defp send_info(conn, env_vars) do
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(200, info_response(env_vars))
+    |> resp(200, info_response(env_vars))
+    |> halt()
   end
 
   @spec info_response(list(String.t())) :: String.t()

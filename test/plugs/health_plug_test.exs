@@ -13,7 +13,8 @@ defmodule MetadataPlugs.HealthTest do
       |> MetadataPlugs.Health.call(@opts)
 
     # Assert the response and status
-    assert conn.state == :sent
+    assert conn.state == :set
+    assert conn.halted
     assert conn.status == 200
     assert conn.resp_body == "{\"status\":\"up\"}"
   end

@@ -22,7 +22,8 @@ defmodule MetadataPlugs.InfoTest do
       |> conn(@path)
       |> MetadataPlugs.Info.call(@opts)
 
-    assert conn.state == :sent
+    assert conn.state == :set
+    assert conn.halted
     assert conn.status == 200
     assert conn.resp_body == expected_env_vars_response
   end

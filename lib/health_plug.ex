@@ -62,7 +62,8 @@ defmodule MetadataPlugs.Health do
   defp send_health(conn) do
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(200, Jason.encode!(health_response()))
+    |> resp(200, Jason.encode!(health_response()))
+    |> halt()
   end
 
   @spec health_response() :: map()
